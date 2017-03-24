@@ -83,7 +83,7 @@ public class Main {
         JSONParser parser = new JSONParser();
         Object o = new Object();
         try {
-            o = parser.parse(new FileReader("/media/roman/Data/Java/tasks/src/tests/epam_task_test/goods.json"));
+            o = parser.parse(new FileReader("/media/roman/Data/Java/SportShop/src/com/romankaranchuk/goods.json"));
         } catch (IOException | ParseException e){
             e.printStackTrace();
         }
@@ -156,7 +156,7 @@ public class Main {
             jsonArray.add(obj);
         }
         equipObj.put("sportEquipments", jsonArray);
-        try (FileWriter file = new FileWriter("/media/roman/Data/Java/tasks/src/tests/epam_task_test/goods.json")) {
+        try (FileWriter file = new FileWriter("/media/roman/Data/Java/SportShop/src/com/romankaranchuk/goods.json")) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             file.write(gson.toJson(equipObj));
 
