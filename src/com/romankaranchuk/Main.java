@@ -31,6 +31,7 @@ public class Main {
             try {
                 inputInt = Integer.parseInt(inputLine);
             } catch (NumberFormatException e){
+                System.out.println("Input correct number, please");
             }
             switch (inputInt) {
                 case 1:
@@ -46,6 +47,9 @@ public class Main {
                     break;
                 case 5:
                     rentUnits();
+                    break;
+                case 6:
+                    searchGood();
                     break;
                 default:
                     outputWarning();
@@ -68,6 +72,7 @@ public class Main {
                                     {"3","get help info for control"},
                                     {"4","get rented out units info"},
                                     {"5","rent units"},
+                                    {"6","search of goods in the shop"},
                                     {"---------------",
                                      "---------------"}};
         System.out.println("Welcome in sport shop!");
@@ -162,6 +167,34 @@ public class Main {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void searchGood(){
+        System.out.println("Searching of good\nInput title of good:");
+        Scanner reader = new Scanner(System.in);
+        String titleGood = reader.nextLine();
+
+        Map<SportEquipment, Integer> curGoods = shop.getGoods();
+        Iterator it = curGoods.entrySet().iterator();
+
+        boolean isFound = false;
+        int countGood = 0, priceGood = 0;
+        while(it.hasNext()){
+            Map.Entry pair = (Map.Entry) it.next();
+            SportEquipment sportEquipment = (SportEquipment) pair.getKey();
+            if (sportEquipment.getTitle().equals(titleGood)){
+                countGood = (int) pair.getValue();
+                priceGood = sportEquipment.getPrice();
+                isFound = true;
+            }
+        }
+        if (isFound){
+            System.out.println("Your good is available!\nCount is " +
+                    countGood + " items\n" +
+                    "Price is "+priceGood + " for one item");
+        } else {
+            System.out.println("Sorry, your good is absent.");
         }
     }
 

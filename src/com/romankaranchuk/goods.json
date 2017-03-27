@@ -1,19 +1,19 @@
 {
   "sportEquipments": [
     {
+      "total count": 298,
+      "price": 190500,
+      "title": "ball for volleyball"
+    },
+    {
       "total count": 200,
       "price": 123500,
       "title": "ball for football"
     },
     {
-      "total count": 3000,
+      "total count": 2998,
       "price": 176500,
       "title": "ball for basketball"
-    },
-    {
-      "total count": 298,
-      "price": 190500,
-      "title": "ball for volleyball"
     }
   ]
 }
